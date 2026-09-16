@@ -19,18 +19,18 @@ public class Apartamento {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "Número")
-    int numero;
-
-    @Column(name = "Bloco")
-    int bloco;
+    private int numero;
 
     @Column(name = "Andar")
-    int andar;
+    private int andar;
+
+    @Column(name = "Bloco")
+    private int bloco;
 
     @Column(name = "Moradores")
-    List<Morador> moradores;
+    private List<Morador> moradores;
 
 }

@@ -24,21 +24,21 @@ public class Reserva {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "Área Comnum")
-    AreaComum areaComum;
+    private AreaComum areaComum;
 
     @Column(name = "Morador")
-    Morador morador;
+    private Morador morador;
 
     @Column(name = "Data")
-    LocalDate data;
+    private LocalDate data;
 
     @Column(name = "Horário")
-    LocalTime horario;
+    private LocalTime horario;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "Status")
-    ReservaStatusEnum status;
+    private ReservaStatusEnum status;
 }

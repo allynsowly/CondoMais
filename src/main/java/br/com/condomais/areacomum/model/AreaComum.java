@@ -17,16 +17,16 @@ public class AreaComum {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "Nome")
-    String nome;
+    private String nome;
 
     @Column(name = "Capacidade")
-    int capacidade;
+    private int capacidade;
 
     @Column(name = "Horário_Funcionamento")
-    LocalTime horarioFuncionamento;
+    private LocalTime horarioFuncionamento;
     
 }
  

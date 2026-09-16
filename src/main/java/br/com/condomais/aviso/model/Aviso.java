@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-import br.com.condomais.sindico.model.Sindico;
+import br.com.condomais.morador.model.Morador;
 
 @Entity 
 @Table(name = "Avisos")
@@ -19,18 +19,18 @@ public class Aviso {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "Título")
-    String titulo;
+    private String titulo;
 
     @Column(name = "Corpo")
-    String corpo;
+    private String corpo;
 
     @Column(name = "Data_Publicação")
-    LocalDate dataPublicacao;
+    private LocalDate dataPublicacao;
 
     @Column(name = "Autor")
-    Sindico autor;
+    private Morador autor;
 
 }
