@@ -1,17 +1,36 @@
 package br.com.condomais.morador.model;
 
+import jakarta.persistence.GenerationType;
+import br.com.condomais.apartamento.model.Apartamento;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "Moradores") 
+@Data 
 public class Morador {
     
-    Long id;
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    String nome;
+    @Column(name = "Nome")
+    private String nome;
 
-    String email;
+    @Column(name = "Email")
+    private String email;
 
-    String senha;
+    @Column(name = "Senha")
+    private String senha;
 
-    String telefone;
+    @Column(name = "Telefone")
+    private String telefone;
 
-    Long apartamentoId;
+    @Column(name = "Apartamento")
+    private Apartamento apartamento;
 
 }
