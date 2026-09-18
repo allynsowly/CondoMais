@@ -2,6 +2,7 @@ import { useState } from "react";
 import MoradorDashboard from "./pages/MoradorDashboard";
 import SindicoDashboard from "./pages/SindicoDashboard";
 import "./App.css";
+import Login from "./pages/Login";
 
 function App() {
 
