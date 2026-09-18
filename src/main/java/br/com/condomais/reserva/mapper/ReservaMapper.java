@@ -18,8 +18,8 @@ public interface ReservaMapper {
 
     Reserva toEntity(ReservaCreateDTO createDTO);
 
-    ReservaResponseDTO toDto(Reserva entity);
+    ReservaResponseDTO toResponseDto(Reserva entity);
 
-    void toEntityFromDto(ReservaUpdateDTO updateDTO, @MappingTarget Reserva entity);
+    void updateEntityFromDto(ReservaUpdateDTO updateDTO, @MappingTarget Reserva entity);
 
 }
