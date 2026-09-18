@@ -4,11 +4,11 @@ import ReservationCard from "../components/ReservationCard";
 import NoticeCard from "../components/NoticeCard";
 import OccurrencesTable from "../components/OccurrencesTable";
 
-function MoradorDashboard() {
+function MoradorDashboard({ onSair }) {
   return (
     <div className="app">
 
-      <Sidebar tipo="morador" />
+      <Sidebar tipo="morador" onSair={onSair} />
 
       <div className="main">
 

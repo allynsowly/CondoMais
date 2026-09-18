@@ -2,11 +2,11 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import "./SindicoDashboard.css";
 
-function SindicoDashboard() {
+function SindicoDashboard({ onSair }) {
   return (
     <div className="app">
 
-      <Sidebar tipo="sindico" />
+      <Sidebar tipo="sindico" onSair={onSair} />
 
       <div className="main">
 

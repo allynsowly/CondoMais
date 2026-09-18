@@ -1,4 +1,4 @@
-function Sidebar({ tipo }) {
+function Sidebar({ tipo, onSair }) {
 
   const menuMorador = [
     { icone: "⌂", nome: "Início" },
@@ -90,7 +90,7 @@ function Sidebar({ tipo }) {
 
 
       {/* SAIR */}
-      <div className="logout">
+      <div className="logout" onClick={onSair}>
 
         <span>
           ⇥

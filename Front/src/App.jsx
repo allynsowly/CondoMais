@@ -5,35 +5,23 @@ import "./App.css";
 
 function App() {
 
-  const [tipoUsuario, setTipoUsuario] = useState("morador");
+  const [tipoUsuario, setTipoUsuario] = useState(null);
 
-  return (
-    <>
-      <button
-        onClick={() =>
-          setTipoUsuario(
-            tipoUsuario === "morador" ? "sindico" : "morador"
-          )
-        }
-        style={{
-          position: "fixed",
-          top: "10px",
-          left: "10px",
-          zIndex: 9999,
-          padding: "10px 15px",
-          cursor: "pointer"
-        }}
-      >
-        Trocar para {tipoUsuario === "morador" ? "Síndico" : "Morador"}
-      </button>
+  function fazerLogin(tipo) {
+    setTipoUsuario(tipo);
+  }
 
-      {tipoUsuario === "morador" ? (
-        <MoradorDashboard />
-      ) : (
-        <SindicoDashboard />
-      )}
-    </>
-  );
+  function sair() {
+    setTipoUsuario(null);
+  }
+
+  if (tipoUsuario === null) {
+    return <Login onLogin={fazerLogin} />;
+  }
+
+  return tipoUsuario === "morador"
+    ? <MoradorDashboard onSair={sair} />
+    : <SindicoDashboard onSair={sair} />;
 }
 
 export default App;
