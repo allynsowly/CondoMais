@@ -1,6 +1,7 @@
 package br.com.condomais.apartamento.service;
 
 import br.com.condomais.apartamento.DTOs.ApartamentoResponseDTO;
+import br.com.condomais.apartamento.excessao.IdNaoEncontrado;
 import br.com.condomais.apartamento.mapper.ApartamentoMapper;
 import br.com.condomais.apartamento.model.Apartamento;
 import br.com.condomais.apartamento.repository.ApartamentoRepository;
@@ -33,7 +34,7 @@ public class ApartamentoService {
         return repository.findById(id)
                 .orElseThrow(() -> {
                     log.warn("Não foi encontrado apartamento de ID {}" , id);
-                    return new RuntimeException();
+                    return new IdNaoEncontrado("Apartamento de ID " + id + " não foi encontrado");
                 });
     }
 
