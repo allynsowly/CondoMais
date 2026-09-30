@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 import "./Reservas.css";
 
 function Reservas({ onSair, onNavigate, paginaAtual }) {

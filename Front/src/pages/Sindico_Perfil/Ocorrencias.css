@@ -199,6 +199,8 @@
 
   border: 1px solid #e7eaee;
 
+  max-height: 608px;
+
   border-radius: 12px;
 
   overflow: hidden;

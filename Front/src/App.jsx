@@ -1,11 +1,11 @@
 import { useState } from "react";
-import MoradorDashboard from "./pages/MoradorDashboard";
-import SindicoDashboard from "./pages/SindicoDashboard";
+import MoradorDashboard from "./pages/Morador_Perfil/MoradorDashboard";
+import SindicoDashboard from "./pages/Sindico_Perfil/SindicoDashboard";
 import Login from "./pages/Login";
-import Moradores from "./pages/Moradores";
-import Unidades from "./pages/Unidades";
-import Reservas from "./pages/Reservas";
-import Ocorrencias from "./pages/Ocorrencias";
+import Moradores from "./pages/Sindico_Perfil/Moradores";
+import Unidades from "./pages/Sindico_Perfil/Unidades";
+import Reservas from "./pages/Sindico_Perfil/Reservas";
+import Ocorrencias from "./pages/Sindico_Perfil/Ocorrencias";
 import "./App.css";
 
 function App() {

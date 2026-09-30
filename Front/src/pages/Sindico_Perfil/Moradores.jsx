@@ -1,8 +1,19 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
 import "./Moradores.css";
+import NovoMoradorModal from "./NovoMoradorModal";
+import { useState } from "react";
+
+
+function cadastrarMorador(novoMorador) {
+
+  console.log("Novo morador:", novoMorador);
+
+}
 
 function Moradores({ onSair, onNavigate, paginaAtual }) {
+
+  const [modalAberto, setModalAberto] = useState(false);
 
   const moradores = [
     {
@@ -134,7 +145,8 @@ function Moradores({ onSair, onNavigate, paginaAtual }) {
 
             </div>
 
-            <button className="new-resident-button">
+            <button className="new-resident-button"
+            onClick={() => setModalAberto(true)}>
               <span>＋</span>
               Novo Morador
             </button>
@@ -597,6 +609,13 @@ function Moradores({ onSair, onNavigate, paginaAtual }) {
         </main>
 
       </div>
+
+      {modalAberto && (
+        <NovoMoradorModal
+          onClose={() => setModalAberto(false)}
+          onCadastrar={cadastrarMorador}
+      />
+    )}
 
     </div>
   );

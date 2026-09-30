@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import Sidebar from "../components/Sidebar";
-import ReservationCard from "../components/ReservationCard";
-import NoticeCard from "../components/NoticeCard";
-import OccurrencesTable from "../components/OccurrencesTable";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import ReservationCard from "../../components/ReservationCard";
+import NoticeCard from "../../components/NoticeCard";
+import OccurrencesTable from "../../components/OccurrencesTable";
 
 function MoradorDashboard({ onSair }) {
   return (
