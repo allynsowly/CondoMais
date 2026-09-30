@@ -1,0 +1,975 @@
+.ocorrencias-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7f9;
+}
+
+.ocorrencias-main {
+  flex: 1;
+  min-width: 0;
+  margin-left: 220px;
+}
+
+.ocorrencias-content {
+  padding: 30px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.ocorrencias-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.ocorrencias-header-left {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.ocorrencias-header-icon {
+  width: 52px;
+  height: 52px;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff0ed;
+
+  font-size: 25px;
+}
+
+.ocorrencias-header h1 {
+  margin: 0;
+
+  color: #1d2939;
+
+  font-size: 28px;
+}
+
+.ocorrencias-header p {
+  margin: 5px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+}
+
+.new-occurrence-button {
+  border: none;
+  border-radius: 8px;
+
+  padding: 12px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #164d3a;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.new-occurrence-button:hover {
+  background: #1f7959;
+}
+
+
+/* =========================
+   CARDS DE RESUMO
+========================= */
+
+.ocorrencias-summary {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-bottom: 25px;
+}
+
+.occurrence-summary-card {
+  background: white;
+
+  border: 1px solid #e7eaee;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.occurrence-summary-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+}
+
+.occurrence-summary-card.red
+.occurrence-summary-icon {
+  background: #fdeceb;
+}
+
+.occurrence-summary-card.orange
+.occurrence-summary-icon {
+  background: #fff1df;
+}
+
+.occurrence-summary-card.green
+.occurrence-summary-icon {
+  background: #e5f5ee;
+}
+
+.occurrence-summary-card.blue
+.occurrence-summary-icon {
+  background: #e9f1ff;
+}
+
+.occurrence-summary-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.occurrence-summary-info span {
+  color: #667085;
+
+  font-size: 13px;
+}
+
+.occurrence-summary-info strong {
+  margin: 2px 0;
+
+  color: #1d2939;
+
+  font-size: 25px;
+}
+
+.occurrence-summary-info small {
+  color: #98a2b3;
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.ocorrencias-grid {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) 310px;
+
+  gap: 20px;
+}
+
+
+/* =========================
+   CARD DA TABELA
+========================= */
+
+.occurrences-card {
+  background: white;
+
+  border: 1px solid #e7eaee;
+
+  max-height: 608px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.occurrences-card-header {
+  padding: 22px 22px 18px;
+}
+
+.occurrences-card-header h2 {
+  margin: 0;
+
+  color: #1d2939;
+
+  font-size: 17px;
+}
+
+.occurrences-card-header span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #98a2b3;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
+.occurrence-filters {
+  padding: 0 22px 18px;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.occurrence-search {
+  flex: 1;
+
+  min-width: 180px;
+
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #dfe3e8;
+
+  border-radius: 7px;
+
+  padding: 0 10px;
+}
+
+.occurrence-search span {
+  color: #98a2b3;
+
+  font-size: 17px;
+}
+
+.occurrence-search input {
+  width: 100%;
+
+  border: none;
+
+  outline: none;
+
+  margin-left: 8px;
+
+  font-size: 12px;
+}
+
+.occurrence-filters select {
+  height: 38px;
+
+  border: 1px solid #dfe3e8;
+
+  border-radius: 7px;
+
+  background: white;
+
+  padding: 0 10px;
+
+  color: #475467;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.clear-occurrence-filters {
+  height: 38px;
+
+  border: 1px solid #dfe3e8;
+
+  border-radius: 7px;
+
+  background: white;
+
+  padding: 0 12px;
+
+  color: #475467;
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.clear-occurrence-filters:hover {
+  background: #f8fafc;
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+.occurrences-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.occurrences-table {
+  width: 100%;
+
+  min-width: 950px;
+
+  border-collapse: collapse;
+}
+
+.occurrences-table th {
+  background: #f8fafb;
+
+  color: #667085;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-align: left;
+
+  padding: 12px 14px;
+
+  border-top: 1px solid #eef0f2;
+
+  border-bottom: 1px solid #eef0f2;
+}
+
+.occurrences-table td {
+  padding: 14px;
+
+  border-bottom: 1px solid #f0f2f4;
+
+  color: #475467;
+
+  font-size: 12px;
+}
+
+.occurrences-table tbody tr:hover {
+  background: #fafcfb;
+}
+
+
+/* =========================
+   PROTOCOLO
+========================= */
+
+.occurrence-protocol {
+  color: #164d3a;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.occurrence-title {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 190px;
+}
+
+.occurrence-icon {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 7px;
+
+  background: #fff0ed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+.occurrence-title strong {
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   UNIDADE
+========================= */
+
+.occurrence-unit {
+  white-space: nowrap;
+
+  color: #475467;
+}
+
+
+/* =========================
+   CATEGORIA
+========================= */
+
+.occurrence-category {
+  display: inline-flex;
+
+  padding: 5px 8px;
+
+  border-radius: 6px;
+
+  background: #f2f4f7;
+
+  color: #475467;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   RESPONSÁVEL
+========================= */
+
+.occurrence-responsible {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+.occurrence-avatar {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: #eef1f4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+}
+
+.occurrence-responsible span {
+  color: #344054;
+}
+
+
+/* =========================
+   DATA
+========================= */
+
+.occurrence-date {
+  white-space: nowrap;
+
+  color: #667085;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.occurrence-status {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.occurrence-status.open {
+  background: #fdeceb;
+
+  color: #c0392b;
+}
+
+.occurrence-status.progress {
+  background: #fff2df;
+
+  color: #b76b00;
+}
+
+.occurrence-status.resolved {
+  background: #e7f6ee;
+
+  color: #18794e;
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.occurrence-actions {
+  display: flex;
+
+  gap: 5px;
+}
+
+.occurrence-actions button {
+  width: 28px;
+  height: 28px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 6px;
+
+  background: white;
+
+  color: #667085;
+
+  cursor: pointer;
+}
+
+.occurrence-actions button:hover {
+  background: #f1f5f3;
+
+  color: #164d3a;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.occurrences-footer {
+  padding: 15px 22px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.occurrences-footer > span {
+  color: #98a2b3;
+
+  font-size: 11px;
+}
+
+.occurrence-pagination {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+.occurrence-pagination button {
+  min-width: 28px;
+  height: 28px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 5px;
+
+  background: white;
+
+  color: #667085;
+
+  cursor: pointer;
+}
+
+.occurrence-pagination button.selected {
+  background: #164d3a;
+
+  border-color: #164d3a;
+
+  color: white;
+}
+
+.occurrence-pagination span {
+  padding: 0 4px;
+
+  color: #98a2b3;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   SIDEBAR DIREITA
+========================= */
+
+.ocorrencias-sidebar {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.occurrence-side-card {
+  background: white;
+
+  border: 1px solid #e7eaee;
+
+  border-radius: 12px;
+
+  padding: 18px;
+}
+
+.occurrence-side-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  margin-bottom: 15px;
+}
+
+.occurrence-side-header h2 {
+  margin: 0;
+
+  color: #1d2939;
+
+  font-size: 15px;
+}
+
+.occurrence-side-header span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #98a2b3;
+
+  font-size: 11px;
+}
+
+.occurrence-side-header a {
+  color: #164d3a;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+/* =========================
+   CATEGORIAS
+========================= */
+
+.occurrence-category-list {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.occurrence-category-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid #f0f2f4;
+}
+
+.occurrence-category-item:last-child {
+  border-bottom: none;
+}
+
+.occurrence-category-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 8px;
+
+  background: #edf6f2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+}
+
+.occurrence-category-info {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.occurrence-category-info strong {
+  color: #344054;
+
+  font-size: 12px;
+}
+
+.occurrence-category-info span {
+  margin-top: 2px;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+}
+
+.occurrence-category-arrow {
+  color: #98a2b3;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   RECENTES
+========================= */
+
+.recent-occurrence {
+  display: flex;
+
+  gap: 10px;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid #f0f2f4;
+}
+
+.recent-occurrence:last-child {
+  border-bottom: none;
+}
+
+.recent-occurrence-icon {
+  width: 35px;
+  height: 35px;
+
+  border-radius: 8px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 14px;
+}
+
+.recent-occurrence-icon.red {
+  background: #fdeceb;
+}
+
+.recent-occurrence-icon.orange {
+  background: #fff1df;
+}
+
+.recent-occurrence-icon.blue {
+  background: #e9f1ff;
+}
+
+.recent-occurrence-info {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.recent-occurrence-info strong {
+  color: #344054;
+
+  font-size: 11px;
+}
+
+.recent-occurrence-info span {
+  margin-top: 3px;
+
+  color: #667085;
+
+  font-size: 10px;
+}
+
+.recent-occurrence-info small {
+  margin-top: 3px;
+
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+
+/* =========================
+   AÇÕES RÁPIDAS
+========================= */
+
+.occurrence-action {
+  width: 100%;
+
+  height: 38px;
+
+  border-radius: 7px;
+
+  margin-bottom: 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 12px;
+
+  border: 1px solid #e5e7eb;
+
+  background: white;
+
+  color: #475467;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+.occurrence-action:last-child {
+  margin-bottom: 0;
+}
+
+.occurrence-action span {
+  font-size: 15px;
+}
+
+.occurrence-action.primary {
+  background: #164d3a;
+
+  border-color: #164d3a;
+
+  color: white;
+}
+
+.occurrence-action.primary:hover {
+  background: #1f7959;
+}
+
+.occurrence-action.green:hover {
+  background: #edf6f2;
+
+  color: #164d3a;
+}
+
+.occurrence-action.purple:hover {
+  background: #f2edff;
+
+  color: #6842c2;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 1200px) {
+
+  .ocorrencias-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ocorrencias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ocorrencias-sidebar {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 850px) {
+
+  .ocorrencias-content {
+    padding: 20px;
+  }
+
+  .ocorrencias-header {
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .occurrence-filters {
+    flex-wrap: wrap;
+  }
+
+  .occurrence-search {
+    flex-basis: 100%;
+  }
+
+  .ocorrencias-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .ocorrencias-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .ocorrencias-header {
+    flex-direction: column;
+  }
+
+  .new-occurrence-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .ocorrencias-content {
+    padding: 15px;
+  }
+
+}

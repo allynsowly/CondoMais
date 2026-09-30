@@ -1,0 +1,247 @@
+/* =========================================
+   PÁGINA DE LOGIN
+========================================= */
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+
+  background: linear-gradient(160deg, #132e52, #102848);
+  color: #17345f;
+}
+
+/* Tema aplicado depois que o perfil é escolhido */
+
+.login-page.tema-morador {
+  background: linear-gradient(160deg, #132e52, #102848);
+}
+
+.login-page.tema-sindico {
+  background: linear-gradient(160deg, #164D3A, #103B2C);
+}
+
+
+/* =========================================
+   CAIXA CENTRAL
+========================================= */
+
+.login-box {
+  width: 100%;
+  max-width: 420px;
+
+  background: white;
+  border: 1px solid #e1eaf4;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(10, 30, 60, 0.25);
+
+  padding: 32px 30px 34px;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e6edf5;
+}
+
+.login-logo-icon {
+  font-size: 34px;
+}
+
+.login-logo h2 {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.login-logo span {
+  font-size: 12px;
+  color: #48658b;
+}
+
+
+/* =========================================
+   CONTEÚDO DAS ETAPAS
+========================================= */
+
+.login-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-step h1 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #49688f;
+  margin-bottom: 24px;
+}
+
+
+/* =========================================
+   BOTÕES DE PERFIL
+========================================= */
+
+.perfil-button {
+  width: 100%;
+  height: 58px;
+
+  border: none;
+  border-radius: 9px;
+
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.perfil-button:last-child {
+  margin-bottom: 0;
+}
+
+.perfil-morador {
+  background: #1479ed;
+}
+
+.perfil-morador:hover {
+  background: #1166cc;
+}
+
+.perfil-sindico {
+  background: #16a37a;
+}
+
+.perfil-sindico:hover {
+  background: #128c68;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.login-label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  font-size: 13px;
+  font-weight: bold;
+  color: #17345f;
+
+  margin-bottom: 18px;
+}
+
+.login-label input {
+  height: 46px;
+
+  border: 1px solid #dbe5f0;
+  border-radius: 8px;
+  padding: 0 14px;
+
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  color: #17345f;
+
+  outline: none;
+}
+
+.login-label input::placeholder {
+  color: #8ba1bd;
+}
+
+.login-label input:focus {
+  border-color: #1479ed;
+}
+
+.tema-sindico .login-label input:focus {
+  border-color: #16a37a;
+}
+
+
+/* Mensagem de erro */
+
+.login-erro {
+  background: #ffe2e2;
+  color: #c62828;
+  border-radius: 8px;
+
+  font-size: 12px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+
+/* Botão entrar */
+
+.entrar-button {
+  width: 100%;
+  height: 50px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #1479ed;
+  color: white;
+
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.entrar-button:hover {
+  background: #1166cc;
+}
+
+.tema-sindico .entrar-button {
+  background: #16a37a;
+}
+
+.tema-sindico .entrar-button:hover {
+  background: #128c68;
+}
+
+
+/* Botão voltar */
+
+.voltar-button {
+  background: none;
+  border: none;
+
+  color: #0875e1;
+  font-size: 12px;
+  font-family: inherit;
+
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.tema-sindico .voltar-button {
+  color: #0f8a66;
+}
+
+.voltar-button:hover {
+  text-decoration: underline;
+}

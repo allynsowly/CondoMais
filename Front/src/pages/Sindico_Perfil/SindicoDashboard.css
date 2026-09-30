@@ -1,0 +1,698 @@
+/* =========================================
+   DASHBOARD DO SÍNDICO
+========================================= */
+
+.sindico-content {
+  padding: 16px 20px 30px;
+  background: #f5f9fe;
+  min-height: calc(100vh - 70px);
+}
+
+
+/* =========================================
+   TOPO
+========================================= */
+
+.sindico-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 18px;
+}
+
+.sindico-welcome h1 {
+  margin: 0;
+  color: #19345c;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.sindico-welcome p {
+  margin: 4px 0 0;
+  color: #4d6b97;
+  font-size: 15px;
+}
+
+
+/* Condomínio */
+
+.condominio-info {
+  width: 640px;
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #d8e6f7;
+  border-radius: 9px;
+
+  background: white;
+}
+
+.condominio-icon {
+  font-size: 35px;
+  margin: 0 18px;
+}
+
+.condominio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  flex: 1;
+}
+
+.condominio-text strong {
+  color: #18365f;
+  font-size: 14px;
+}
+
+.condominio-text span {
+  color: #55719b;
+  font-size: 12px;
+}
+
+.condominio-date {
+  height: 48px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-left: 1px solid #e1eaf5;
+
+  color: #55719b;
+
+  font-size: 11px;
+}
+
+.condominio-date div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.condominio-date small {
+  font-size: 11px;
+}
+
+
+/* =========================================
+   CARDS DE RESUMO
+========================================= */
+
+.sindico-summary {
+  display: grid;
+
+  grid-template-columns:
+    minmax(180px, 1fr)
+    minmax(180px, 1fr)
+    minmax(180px, 1fr)
+    minmax(350px, 1.8fr);
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+
+.summary-card {
+  min-height: 145px;
+
+  padding: 16px 18px;
+
+  background: white;
+
+  border: 1px solid;
+  border-radius: 9px;
+
+  box-sizing: border-box;
+}
+
+.summary-card.red {
+  border-color: #ffbfc2;
+}
+
+.summary-card.blue {
+  border-color: #b9ddff;
+}
+
+.summary-card.green {
+  border-color: #b7eadc;
+}
+
+
+.summary-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+
+  margin-bottom: 8px;
+}
+
+.summary-card.red .summary-icon {
+  background: #ef3037;
+  color: white;
+}
+
+.summary-card.blue .summary-icon {
+  background: #1687ef;
+  color: white;
+}
+
+.summary-card.green .summary-icon {
+  background: #149b72;
+  color: white;
+}
+
+
+.summary-card h3 {
+  margin: 0;
+
+  color: #17345d;
+
+  font-size: 14px;
+}
+
+.summary-card strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #18365f;
+
+  font-size: 34px;
+  line-height: 1;
+}
+
+.summary-card p {
+  margin: 7px 0 0;
+
+  color: #57749e;
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   AÇÕES RÁPIDAS
+========================================= */
+
+.actions-card {
+  min-height: 145px;
+
+  padding: 14px 15px;
+
+  background: white;
+
+  border: 1px solid #d8e6f7;
+
+  border-radius: 9px;
+}
+
+.actions-card h2 {
+  margin: 0 0 10px;
+
+  color: #18365f;
+
+  font-size: 16px;
+}
+
+.action-button {
+  width: 100%;
+
+  min-height: 48px;
+
+  margin-bottom: 8px;
+
+  border: none;
+  border-radius: 7px;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  padding: 7px 15px;
+
+  gap: 14px;
+}
+
+.action-button:last-child {
+  margin-bottom: 0;
+}
+
+.action-blue {
+  background: #2582e9;
+}
+
+.action-green {
+  background: #18a87c;
+}
+
+.action-purple {
+  background: #7352e8;
+}
+
+.action-icon {
+  font-size: 23px;
+
+  width: 40px;
+
+  text-align: center;
+}
+
+.action-button strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.action-button small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 10px;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================
+   GRID DO MEIO
+========================================= */
+
+.middle-grid {
+  display: grid;
+
+  grid-template-columns: 1.35fr 1fr;
+
+  gap: 14px;
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.dashboard-card {
+  background: white;
+
+  border: 1px solid #dce8f6;
+
+  border-radius: 9px;
+
+  padding: 12px 12px 8px;
+
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 8px;
+}
+
+.card-header h2 {
+  margin: 0;
+
+  color: #19365e;
+
+  font-size: 15px;
+}
+
+.card-header a {
+  color: #1679e5;
+
+  text-decoration: none;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   TABELAS
+========================================= */
+
+.dashboard-card table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  font-size: 10px;
+}
+
+.dashboard-card th {
+  background: #f3f7fc;
+
+  color: #18365f;
+
+  font-weight: 600;
+
+  padding: 9px 7px;
+
+  text-align: left;
+}
+
+.dashboard-card td {
+  padding: 9px 7px;
+
+  border-bottom: 1px solid #edf2f8;
+
+  color: #234777;
+}
+
+.dashboard-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-dot {
+  display: inline-block;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  margin-right: 8px;
+
+  vertical-align: middle;
+}
+
+.green-dot {
+  background: #13a273;
+}
+
+.blue-dot {
+  background: #1787ee;
+}
+
+.yellow-dot {
+  background: #f5b500;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.badge {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+.badge-red {
+  color: #e4373d;
+  background: #ffe1e3;
+}
+
+.badge-yellow {
+  color: #ce8500;
+  background: #fff0c9;
+}
+
+.badge-green {
+  color: #13966c;
+  background: #d9f5ea;
+}
+
+
+/* =========================================
+   PARTE INFERIOR
+========================================= */
+
+.bottom-grid-sindico {
+  display: grid;
+
+  grid-template-columns: 1.15fr 1fr;
+
+  gap: 14px;
+}
+
+
+/* =========================================
+   ESTATÍSTICAS
+========================================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+.stat-item {
+  min-height: 135px;
+
+  border: 1px solid #dce8f6;
+
+  border-radius: 7px;
+
+  padding: 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+.stat-icon {
+  color: #1681eb;
+
+  font-size: 24px;
+
+  margin-bottom: 10px;
+}
+
+.stat-title {
+  color: #18365f;
+
+  font-size: 10px;
+
+  min-height: 28px;
+}
+
+.stat-item strong {
+  margin-top: 8px;
+
+  color: #18365f;
+
+  font-size: 24px;
+}
+
+.stat-item small {
+  margin-top: 7px;
+
+  color: #58749b;
+
+  font-size: 9px;
+}
+
+.green-text {
+  color: #149c72 !important;
+}
+
+
+/* =========================================
+   COMUNICADOS
+========================================= */
+
+.notice-list {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.notice-item {
+  min-height: 47px;
+
+  padding: 7px 4px;
+
+  border-bottom: 1px solid #edf2f8;
+
+  display: grid;
+
+  grid-template-columns: 32px 1fr 80px 60px;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+.notice-icon {
+  width: 27px;
+  height: 27px;
+
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  font-size: 13px;
+}
+
+.blue-notice {
+  background: #1687ed;
+}
+
+.green-notice {
+  background: #18a579;
+}
+
+.red-notice {
+  background: #ed3d42;
+}
+
+.dark-notice {
+  background: #38557a;
+}
+
+.notice-item strong {
+  display: block;
+
+  color: #19365f;
+
+  font-size: 10px;
+}
+
+.notice-item p {
+  margin: 3px 0 0;
+
+  color: #6380a6;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.notice-date {
+  color: #6380a6;
+
+  font-size: 9px;
+
+  text-align: right;
+}
+
+.notice-tag {
+  padding: 5px 6px;
+
+  border-radius: 15px;
+
+  font-size: 8px;
+
+  text-align: center;
+}
+
+.important {
+  color: #1781e5;
+  background: #e0f0ff;
+}
+
+.rule {
+  color: #12946b;
+  background: #d9f5ea;
+}
+
+.event {
+  color: #7950dc;
+  background: #eee6ff;
+}
+
+.notice {
+  color: #45617f;
+  background: #e8eef5;
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .sindico-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .actions-card {
+    grid-column: span 3;
+  }
+
+  .condominio-info {
+    width: 500px;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .sindico-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .condominio-info {
+    width: 100%;
+  }
+
+  .sindico-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-card {
+    grid-column: auto;
+  }
+
+  .middle-grid,
+  .bottom-grid-sindico {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
