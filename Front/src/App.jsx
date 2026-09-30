@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Moradores from "./pages/Moradores";
 import Unidades from "./pages/Unidades";
 import Reservas from "./pages/Reservas";
+import Ocorrencias from "./pages/Ocorrencias";
 import "./App.css";
 
 function App() {
@@ -75,6 +76,16 @@ function App() {
   if (paginaAtual === "reservas") {
     return (
       <Reservas
+        onSair={sair}
+        onNavigate={navegar}
+        paginaAtual={paginaAtual}
+      />
+    );
+  }
+
+  if (paginaAtual === "ocorrencias") {
+    return (
+      <Ocorrencias
         onSair={sair}
         onNavigate={navegar}
         paginaAtual={paginaAtual}
