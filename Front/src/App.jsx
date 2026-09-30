@@ -4,6 +4,7 @@ import SindicoDashboard from "./pages/SindicoDashboard";
 import Login from "./pages/Login";
 import Moradores from "./pages/Moradores";
 import Unidades from "./pages/Unidades";
+import Reservas from "./pages/Reservas";
 import "./App.css";
 
 function App() {
@@ -70,6 +71,17 @@ function App() {
     />
     );
   }
+
+  if (paginaAtual === "reservas") {
+    return (
+      <Reservas
+        onSair={sair}
+        onNavigate={navegar}
+        paginaAtual={paginaAtual}
+      />
+    );
+  }
+
 
 
   return (
