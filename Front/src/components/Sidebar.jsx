@@ -1,23 +1,23 @@
-function Sidebar({ tipo, onSair }) {
+function Sidebar({ tipo, onSair, onNavigate, paginaAtual }) {
 
   const menuMorador = [
-    { icone: "⌂", nome: "Início" },
-    { icone: "▣", nome: "Minhas Reservas" },
-    { icone: "⚠", nome: "Minhas Ocorrências" },
-    { icone: "⚑", nome: "Mural de Avisos" },
-    { icone: "●", nome: "Meu Perfil" },
-    { icone: "⚙", nome: "Configurações" }
+    { icone: "⌂", nome: "Início", pagina: "inicio" },
+    { icone: "▣", nome: "Minhas Reservas", pagina: "reservas" },
+    { icone: "⚠", nome: "Minhas Ocorrências", pagina: "ocorrencias" },
+    { icone: "⚑", nome: "Mural de Avisos", pagina: "avisos" },
+    { icone: "●", nome: "Meu Perfil", pagina: "perfil" },
+    { icone: "⚙", nome: "Configurações", pagina: "configuracoes" }
   ];
 
   const menuSindico = [
-    { icone: "⌂", nome: "Início" },
-    { icone: "●", nome: "Moradores" },
-    { icone: "▥", nome: "Unidades" },
-    { icone: "▣", nome: "Reservas" },
-    { icone: "⚠", nome: "Ocorrências" },
-    { icone: "⚑", nome: "Avisos e Comunicados" },
-    { icone: "▤", nome: "Relatórios" },
-    { icone: "⚙", nome: "Configurações" }
+    { icone: "⌂", nome: "Início", pagina: "inicio" },
+    { icone: "●", nome: "Moradores", pagina: "moradores" },
+    { icone: "▥", nome: "Unidades", pagina: "unidades" },
+    { icone: "▣", nome: "Reservas", pagina: "reservas" },
+    { icone: "⚠", nome: "Ocorrências", pagina: "ocorrencias" },
+    { icone: "⚑", nome: "Avisos e Comunicados", pagina: "avisos" },
+    { icone: "▤", nome: "Relatórios", pagina: "relatorios" },
+    { icone: "⚙", nome: "Configurações", pagina: "configuracoes" }
   ];
 
   const menu = tipo === "sindico"
@@ -25,26 +25,22 @@ function Sidebar({ tipo, onSair }) {
     : menuMorador;
 
   return (
-  <aside
-    className="sidebar"
-    style={
-      tipo === "sindico"
-        ? {
-            background: "#164D3A",
-            backgroundColor: "#164D3A"
-          }
-        : {
-            background: "linear-gradient(180deg, #132e52, #102848)"
-          }
-    }
-  >
-
-    {/* LOGO */}
-    <div className="logo">
-      ...
-    </div>
+    <aside
+      className="sidebar"
+      style={
+        tipo === "sindico"
+          ? {
+              background: "#164D3A",
+              backgroundColor: "#164D3A"
+            }
+          : {
+              background: "linear-gradient(180deg, #132e52, #102848)"
+            }
+      }
+    >
 
       {/* LOGO */}
+
       <div className="logo">
 
         <div className="logo-icon">
@@ -60,37 +56,47 @@ function Sidebar({ tipo, onSair }) {
 
 
       {/* MENU */}
+
       <nav className="menu">
 
-        {menu.map((item, index) => (
+        {menu.map((item, index) => {
 
-          <a
-            key={index}
-            className={`menu-item ${index === 0 ? "active" : ""}`}
-            style={
-    tipo === "sindico" && index === 0
-      ? {
-          background: "#1F7959"
-        }
-      : {}
-  }
-          >
+          const selecionado = paginaAtual === item.pagina;
 
-            <span>
-              {item.icone}
-            </span>
+          return (
+            <a
+              key={index}
+              className={`menu-item ${selecionado ? "active" : ""}`}
+              onClick={() => onNavigate(item.pagina)}
+              style={
+                tipo === "sindico" && selecionado
+                  ? {
+                      background: "#1F7959"
+                    }
+                  : {}
+              }
+            >
 
-            {item.nome}
+              <span>
+                {item.icone}
+              </span>
 
-          </a>
+              {item.nome}
 
-        ))}
+            </a>
+          );
+
+        })}
 
       </nav>
 
 
       {/* SAIR */}
-      <div className="logout" onClick={onSair}>
+
+      <div
+        className="logout"
+        onClick={onSair}
+      >
 
         <span>
           ⇥
