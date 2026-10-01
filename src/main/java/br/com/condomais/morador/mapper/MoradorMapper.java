@@ -20,6 +20,8 @@ public interface MoradorMapper {
 
     MoradorResponseDTO toResponseDto(Morador entity);
 
+    MoradorCreateDTO toCreateDto(Morador entity);
+
     void updateEntityFromDto(MoradorUpdateDTO updateDTO, @MappingTarget Morador entity);
     
 }

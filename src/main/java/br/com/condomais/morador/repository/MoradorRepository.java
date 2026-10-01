@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface MoradorRepository extends JpaRepository<Morador, Long>{
     Optional<Morador> acharPorEmail(String email);
+
+    Boolean existePorEmail(String email);
 }

@@ -2,8 +2,8 @@ package br.com.condomais.login.auth.services;
 
 import br.com.condomais.login.auth.refreshToken.RefreshToken;
 import br.com.condomais.login.auth.refreshToken.RefreshTokenRepository;
-
 import br.com.condomais.compartilhado.excecao.RefreshTokenInvalidoException;
+
 import br.com.condomais.morador.model.Morador;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

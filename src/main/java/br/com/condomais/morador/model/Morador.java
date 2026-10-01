@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 import br.com.condomais.apartamento.model.Apartamento;
@@ -15,7 +16,8 @@ import br.com.condomais.morador.enums.FuncaoMoradorEnum;
 
 @Entity
 @Table(name = "Moradores") 
-@Data 
+@Data
+@Builder 
 public class Morador {
     
     @Id 
