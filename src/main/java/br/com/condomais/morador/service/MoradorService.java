@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -67,5 +68,9 @@ public class MoradorService {
                     return new IdNaoEncontradoException(
                             "Morador de ID " + id + " não foi encontrado");
                 });
+    }
+
+    public Optional<Morador> acharPorEmail(String email) {
+        return repository.acharPorEmail(email);
     }
 }
