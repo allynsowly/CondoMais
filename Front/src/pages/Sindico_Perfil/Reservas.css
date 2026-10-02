@@ -58,17 +58,17 @@
 
 .new-reserva-button {
   border: none;
-  background: #164d3a;
+  background: #168a64;
   color: white;
-  padding: 13px 20px;
-  border-radius: 9px;
-  font-size: 14px;
+  height: 40px;
+  padding: 0 21px;
+  border-radius: 6px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
 .new-reserva-button:hover {
@@ -466,9 +466,9 @@
 }
 
 .reserva-pagination button.selected {
-  background: #164d3a;
+  background: #168a64;
+  border-color: #168a64;
   color: white;
-  border-color: #164d3a;
 }
 
 
@@ -703,12 +703,12 @@
 }
 
 .reserva-action-button.primary {
-  background: #164d3a;
+  background: #168a64;
   color: white;
 }
 
 .reserva-action-button.primary span {
-  background: #1f7959;
+  background: #168a64;
 }
 
 .reserva-action-button.green {

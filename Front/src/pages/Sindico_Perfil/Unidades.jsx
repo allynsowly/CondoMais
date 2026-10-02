@@ -1,10 +1,17 @@
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import "./Unidades.css";
+import { useState } from "react";
+import NovaUnidadeModal from "./NovaUnidadeModal";
 
 function Unidades({ onSair, onNavigate, paginaAtual }) {
+  const [modalAberto, setModalAberto] = useState(false);
+  const [totalUnidades, setTotalUnidades] = useState(100);
+  const [unidadesOcupadas] = useState(92);
+  const [unidadesVazias, setUnidadesVazias] = useState(8);
 
-  const unidades = [
+
+  const [unidades, setUnidades] = useState([
     {
       unidade: "101",
       bloco: "Bloco A",
@@ -85,7 +92,40 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
       veiculos: 1,
       status: "Ocupada"
     }
-  ];
+  ]);
+
+  async function cadastrarUnidade(novaUnidade) {
+
+  const blocoFormatado = `Bloco ${novaUnidade.bloco}`;
+
+  const unidadeExiste = unidades.some((unidade) => {
+    return (
+      unidade.bloco === blocoFormatado &&
+      unidade.unidade === novaUnidade.numero
+    );
+  });
+
+  if (unidadeExiste) {
+    throw new Error("Essa unidade já está cadastrada.");
+  }
+
+  const unidadeCadastrada = {
+    unidade: novaUnidade.numero,
+    bloco: blocoFormatado,
+    proprietario: "Não informado",
+    moradores: 0,
+    veiculos: 0,
+    status: "Vazia"
+  };
+
+  setUnidades((listaAtual) => [
+    unidadeCadastrada,
+    ...listaAtual
+  ]);
+
+  setTotalUnidades((total) => total + 1);
+  setUnidadesVazias((total) => total + 1);
+}
 
   return (
     <div className="unidades-page">
@@ -129,7 +169,8 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
             </div>
 
 
-            <button className="new-unit-button">
+            <button className="new-unit-button"
+            onClick={() => setModalAberto(true)}>
 
               <span>＋</span>
 
@@ -154,7 +195,7 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
 
                 <span>Total de Unidades</span>
 
-                <strong>100</strong>
+                <strong>{totalUnidades}</strong>
 
                 <small>
                   Todas as unidades cadastradas
@@ -175,7 +216,7 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
 
                 <span>Unidades Ocupadas</span>
 
-                <strong>92</strong>
+                <strong>{unidadesOcupadas}</strong>
 
                 <small>
                   92% do condomínio
@@ -196,7 +237,7 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
 
                 <span>Unidades Vazias</span>
 
-                <strong>8</strong>
+                <strong>{unidadesVazias}</strong>
 
                 <small>
                   Disponíveis no momento
@@ -794,7 +835,8 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
                 </div>
 
 
-                <button className="unit-action primary">
+                <button className="unit-action primary"
+                onClick={() => setModalAberto(true)}>
                   <span>＋</span>
                   Cadastrar Nova Unidade
                 </button>
@@ -820,6 +862,14 @@ function Unidades({ onSair, onNavigate, paginaAtual }) {
         </main>
 
       </div>
+
+      {modalAberto && (
+  <NovaUnidadeModal
+    onClose={() => setModalAberto(false)}
+    onCadastrar={cadastrarUnidade}
+  />
+)}
+
 
     </div>
   );
