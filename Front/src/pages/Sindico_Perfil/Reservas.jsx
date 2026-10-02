@@ -1,10 +1,15 @@
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
+import { useState } from "react";
+import NovaReservaModal from "./NovaReservaModal";
+
 import "./Reservas.css";
 
 function Reservas({ onSair, onNavigate, paginaAtual }) {
 
-  const reservas = [
+  const [modalAberto, setModalAberto] = useState(false);
+  
+  const [reservas, setReservas] = useState([
     {
       horario: "08:00 - 10:00",
       area: "Salão de Festas",
@@ -45,7 +50,45 @@ function Reservas({ onSair, onNavigate, paginaAtual }) {
       convidados: 40,
       status: "Pendente"
     }
-  ];
+  ]);
+
+  
+async function cadastrarReserva(novaReserva) {
+  const conflito = reservas.some((reserva) => {
+    if (
+      reserva.area !== novaReserva.area ||
+      reserva.data !== novaReserva.data
+    ) {
+      return false;
+    }
+
+    const [inicioExistente, fimExistente] =
+      reserva.horario.split(" - ");
+
+    if (!inicioExistente || !fimExistente) {
+      return false;
+    }
+
+    return (
+      novaReserva.horarioInicio < fimExistente &&
+      novaReserva.horarioFim > inicioExistente
+    );
+  });
+
+  if (conflito) {
+    throw new Error(
+      "Já existe uma reserva para essa área nesse horário."
+    );
+  }
+
+  setReservas((listaAtual) => [
+    {
+      ...novaReserva,
+      id: Date.now()
+    },
+    ...listaAtual
+  ]);
+}
 
   const areas = [
     {
@@ -115,7 +158,8 @@ function Reservas({ onSair, onNavigate, paginaAtual }) {
 
             </div>
 
-            <button className="new-reserva-button">
+            <button className="new-reserva-button"
+            onClick={() => setModalAberto(true)}>
 
               <span>＋</span>
 
@@ -623,7 +667,8 @@ function Reservas({ onSair, onNavigate, paginaAtual }) {
                 </div>
 
 
-                <button className="reserva-action-button primary">
+                <button className="reserva-action-button primary"
+                onClick={() => setModalAberto(true)}>
 
                   <span>＋</span>
 
@@ -658,6 +703,13 @@ function Reservas({ onSair, onNavigate, paginaAtual }) {
         </main>
 
       </div>
+
+      {modalAberto && (
+        <NovaReservaModal
+          onClose={() => setModalAberto(false)}
+          onCadastrar={cadastrarReserva}
+        />
+      )}
 
     </div>
   );
