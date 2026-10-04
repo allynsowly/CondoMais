@@ -18,6 +18,8 @@ public interface MoradorMapper {
     
     Morador toEntity(MoradorCreateDTO createDTO);
 
+    Morador toEntityFromResponse(MoradorResponseDTO responseDTO);
+
     MoradorResponseDTO toResponseDto(Morador entity);
 
     MoradorCreateDTO toCreateDto(Morador entity);
