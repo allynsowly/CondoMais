@@ -8,7 +8,6 @@ import br.com.condomais.morador.enums.FuncaoMoradorEnum;
 import br.com.condomais.morador.mapper.MoradorMapper;
 import br.com.condomais.morador.model.Morador;
 import br.com.condomais.morador.repository.MoradorRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -49,9 +48,8 @@ public class MoradorService {
             throw new ProibidoException("Apenas o síndico pode executar esse comando.");
         }
 
-        Morador moradorEncontrado = repository.findById(id)
-                .orElseThrow(() -> new EntidadeNaoEncontradaException("User", id));
-        
+        Morador moradorEncontrado = buscarEntidadePorId(id);
+
         return mapper.toResponseDto(moradorEncontrado);
     }
 
@@ -73,8 +71,7 @@ public class MoradorService {
 
     @Transactional
     public MoradorResponseDTO atualizarEu(Morador moradorAutenticado, MoradorUpdateDTO request) {
-        Morador morador = repository.findById(moradorAutenticado.getId())
-                .orElseThrow(() -> new EntityNotFoundException("Morador", moradorAutenticado.getId()));
+        Morador morador = buscarEntidadePorId(moradorAutenticado.getId());
 
         if (!request.getEmail().equals(morador.getEmail()) && repository.existePorEmail(request.getEmail())) {
             throw new EmailJaExisteException(request.getEmail());
