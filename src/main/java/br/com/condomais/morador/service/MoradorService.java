@@ -1,6 +1,8 @@
 package br.com.condomais.morador.service;
 
+import br.com.condomais.compartilhado.excecao.EmailJaExisteException;
 import br.com.condomais.compartilhado.excecao.IdNaoEncontradoException;
+import br.com.condomais.compartilhado.excecao.ProibidoException;
 import br.com.condomais.morador.DTOs.MoradorCreateDTO;
 import br.com.condomais.morador.DTOs.MoradorResponseDTO;
 import br.com.condomais.morador.DTOs.MoradorUpdateDTO;
