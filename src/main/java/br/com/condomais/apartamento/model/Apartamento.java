@@ -2,22 +2,26 @@ package br.com.condomais.apartamento.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import br.com.condomais.morador.model.Morador;
 
 @Entity
-@Table(name = "Apartamentos")  
-@Data 
+@Table(name = "Apartamentos")
+@Data
 public class Apartamento {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -30,7 +34,9 @@ public class Apartamento {
     @Column(name = "Bloco")
     private int bloco;
 
-    @Column(name = "Moradores")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "apartamento", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Morador> moradores;
 
 }
