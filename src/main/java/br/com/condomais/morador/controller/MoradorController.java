@@ -1,11 +1,8 @@
 package br.com.condomais.morador.controller;
 
 import br.com.condomais.login.security.details.MoradorDetailsImpl;
-import br.com.condomais.morador.DTOs.MoradorCreateDTO;
 import br.com.condomais.morador.DTOs.MoradorResponseDTO;
 import br.com.condomais.morador.DTOs.MoradorUpdateDTO;
-import br.com.condomais.morador.mapper.MoradorMapper;
-import br.com.condomais.morador.model.Morador;
 import br.com.condomais.morador.service.MoradorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +36,6 @@ public class MoradorController {
     public ResponseEntity<MoradorResponseDTO> buscarPorId(
             @PathVariable Long id,
             @AuthenticationPrincipal MoradorDetailsImpl moradorDetails) {
-
-        Long idProcurado = moradorDetails.getMorador().getId();
 
         MoradorResponseDTO resposta = service.buscarPorIdComoSindico(id, moradorDetails.getMorador());
 

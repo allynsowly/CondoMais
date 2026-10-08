@@ -5,7 +5,6 @@ import br.com.condomais.login.auth.DTOs.*;
 import br.com.condomais.login.security.details.MoradorDetailsImpl;
 import br.com.condomais.compartilhado.excecao.EmailJaExisteException;
 import br.com.condomais.morador.model.Morador;
-import br.com.condomais.morador.DTOs.MoradorResponseDTO;
 import br.com.condomais.morador.enums.FuncaoMoradorEnum;
 import br.com.condomais.morador.mapper.MoradorMapper;
 import br.com.condomais.morador.service.MoradorService;
