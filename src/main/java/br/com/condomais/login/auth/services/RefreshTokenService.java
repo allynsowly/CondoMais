@@ -17,6 +17,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Base64;
 
+@Service
 public class RefreshTokenService {
     private static final int TOKEN_BYTES = 64;
 
