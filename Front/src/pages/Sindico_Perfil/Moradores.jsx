@@ -3,6 +3,7 @@ import Sidebar from "../../components/Sidebar";
 import "./Moradores.css";
 import NovoMoradorModal from "./NovoMoradorModal";
 import { useState } from "react";
+import NovaUnidadeModal from "./NovaUnidadeModal";
 
 
 function cadastrarMorador(novoMorador) {
@@ -11,9 +12,11 @@ function cadastrarMorador(novoMorador) {
 
 }
 
-function Moradores({ onSair, onNavigate, paginaAtual }) {
+
+function Moradores({ onSair, onNavigate, paginaAtual, cadastrarUnidade }) {
 
   const [modalAberto, setModalAberto] = useState(false);
+  const [modalAbertoUnidades, setModalAbertoUnidades] = useState(false);
 
   const moradores = [
     {
@@ -574,7 +577,8 @@ function Moradores({ onSair, onNavigate, paginaAtual }) {
                 </div>
 
 
-                <button className="quick-action primary-action">
+                <button className="quick-action primary-action"
+                onClick={() => setModalAberto(true)}>
 
                   <span>⊕</span>
 
@@ -583,7 +587,8 @@ function Moradores({ onSair, onNavigate, paginaAtual }) {
                 </button>
 
 
-                <button className="quick-action green-action">
+                <button className="quick-action green-action"
+                onClick={() => setModalAbertoUnidades(true)}>
 
                   <span>🏢</span>
 
@@ -616,6 +621,15 @@ function Moradores({ onSair, onNavigate, paginaAtual }) {
           onCadastrar={cadastrarMorador}
       />
     )}
+
+    {modalAbertoUnidades && (
+  <NovaUnidadeModal
+    onClose={() => setModalAbertoUnidades(false)}
+    onCadastrar={cadastrarUnidade}
+  />
+)}
+
+    
 
     </div>
   );

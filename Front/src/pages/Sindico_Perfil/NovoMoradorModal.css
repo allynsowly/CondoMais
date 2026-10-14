@@ -276,17 +276,17 @@
 }
 
 .submit-button {
-  border: 1px solid #164d3a;
+  border: 1px solid #168a64;
 
-  background: #164d3a;
+  background: #168a64;;
 
   color: white;
 }
 
 .submit-button:hover {
-  background: #1f7959;
+  background: #116f50;
 
-  border-color: #1f7959;
+  border-color: #116f50;;
 }
 
 .submit-button:disabled,
