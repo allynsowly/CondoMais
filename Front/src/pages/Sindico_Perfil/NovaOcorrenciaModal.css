@@ -1,0 +1,243 @@
+.nova-ocorrencia-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(16, 24, 40, 0.55);
+  overflow-y: auto;
+}
+
+.nova-ocorrencia-modal {
+  width: 100%;
+  max-width: 650px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(16, 24, 40, 0.2);
+  animation: aparecer-modal-ocorrencia 0.2s ease-out;
+}
+
+.nova-ocorrencia-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 26px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.nova-ocorrencia-header h2 {
+  margin: 0;
+  color: #1d2939;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.nova-ocorrencia-header p {
+  margin: 7px 0 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.nova-ocorrencia-fechar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #667085;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.nova-ocorrencia-fechar:hover {
+  background: #f2f4f7;
+  color: #1d2939;
+}
+
+.nova-ocorrencia-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 16px;
+  padding: 24px 26px;
+}
+
+.nova-ocorrencia-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.nova-ocorrencia-campo.campo-completo {
+  grid-column: 1 / -1;
+}
+
+.nova-ocorrencia-campo label {
+  color: #344054;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nova-ocorrencia-campo label span {
+  color: #d92d20;
+}
+
+.nova-ocorrencia-campo input,
+.nova-ocorrencia-campo select,
+.nova-ocorrencia-campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d0d5dd;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #344054;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nova-ocorrencia-campo input,
+.nova-ocorrencia-campo select {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.nova-ocorrencia-campo textarea {
+  min-height: 105px;
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.nova-ocorrencia-campo input::placeholder,
+.nova-ocorrencia-campo textarea::placeholder {
+  color: #98a2b3;
+}
+
+.nova-ocorrencia-campo input:focus,
+.nova-ocorrencia-campo select:focus,
+.nova-ocorrencia-campo textarea:focus {
+  border-color: #168a64;
+  box-shadow: 0 0 0 3px rgba(22, 138, 100, 0.12);
+}
+
+.nova-ocorrencia-campo small {
+  color: #98a2b3;
+  font-size: 11px;
+  text-align: right;
+}
+
+.nova-ocorrencia-erro {
+  margin: 0 26px 16px;
+  padding: 11px 13px;
+  border: 1px solid #fecdca;
+  border-radius: 7px;
+  background: #fef3f2;
+  color: #b42318;
+  font-size: 12px;
+}
+
+.nova-ocorrencia-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 18px 26px 24px;
+  border-top: 1px solid #eaecf0;
+}
+
+.nova-ocorrencia-footer button {
+  min-height: 40px;
+  padding: 0 17px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nova-ocorrencia-cancelar {
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #344054;
+}
+
+.nova-ocorrencia-cancelar:hover {
+  background: #f9fafb;
+}
+
+.nova-ocorrencia-salvar {
+  border: 1px solid #168a64;
+  background: #168a64;
+  color: #ffffff;
+}
+
+.nova-ocorrencia-salvar:hover {
+  border-color: #126d50;
+  background: #126d50;
+}
+
+@keyframes aparecer-modal-ocorrencia {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .nova-ocorrencia-overlay {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .nova-ocorrencia-modal {
+    max-height: calc(100vh - 24px);
+    margin: auto 0;
+  }
+
+  .nova-ocorrencia-header,
+  .nova-ocorrencia-body {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .nova-ocorrencia-body {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nova-ocorrencia-campo.campo-completo {
+    grid-column: auto;
+  }
+
+  .nova-ocorrencia-footer {
+    flex-direction: column-reverse;
+    padding: 16px 18px 20px;
+  }
+
+  .nova-ocorrencia-footer button {
+    width: 100%;
+  }
+
+  .nova-ocorrencia-erro {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+}

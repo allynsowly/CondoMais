@@ -1,10 +1,14 @@
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import "./Ocorrencias.css";
+import { useState } from "react";
+import NovaOcorrenciaModal from "./NovaOcorrenciaModal";
 
 function Ocorrencias({ onSair, onNavigate, paginaAtual }) {
 
-  const ocorrencias = [
+  
+
+  const [ocorrencias, setOcorrencias] = useState([
     {
       protocolo: "#OC-001",
       titulo: "Vazamento de água",
@@ -59,7 +63,42 @@ function Ocorrencias({ onSair, onNavigate, paginaAtual }) {
       data: "21/09/2026",
       status: "Resolvida"
     }
-  ];
+  ]);
+
+  const [mostrarModal, setMostrarModal] = useState(false);
+  
+function cadastrarOcorrencia(novaOcorrencia) {
+  const agora = new Date();
+
+  const dataAtual = [
+    String(agora.getDate()).padStart(2, "0"),
+    String(agora.getMonth() + 1).padStart(2, "0"),
+    agora.getFullYear(),
+  ].join("/");
+
+  const maiorProtocolo = ocorrencias.reduce((maior, item) => {
+    const numero = Number(item.protocolo.replace("#OC-", ""));
+    return Number.isFinite(numero) ? Math.max(maior, numero) : maior;
+  }, 0);
+
+  const ocorrenciaCriada = {
+    protocolo: `#OC-${String(maiorProtocolo + 1).padStart(3, "0")}`,
+    titulo: novaOcorrencia.titulo.trim(),
+    unidade: novaOcorrencia.unidade.trim(),
+    categoria: novaOcorrencia.categoria,
+    responsavel: novaOcorrencia.responsavel.trim(),
+    data: dataAtual,
+    status: "Aberta",
+    prioridade: novaOcorrencia.prioridade,
+    descricao: novaOcorrencia.descricao.trim(),
+  };
+
+  setOcorrencias((listaAtual) => [
+    ocorrenciaCriada,
+    ...listaAtual,
+  ]);
+}
+
 
   const categorias = [
     {
@@ -125,7 +164,8 @@ function Ocorrencias({ onSair, onNavigate, paginaAtual }) {
 
             </div>
 
-            <button className="new-occurrence-button">
+            <button className="new-occurrence-button"
+            onClick={() => setMostrarModal(true)}>
               <span>＋</span>
               Nova Ocorrência
             </button>
@@ -699,7 +739,8 @@ function Ocorrencias({ onSair, onNavigate, paginaAtual }) {
                 </div>
 
 
-                <button className="occurrence-action primary">
+                <button className="occurrence-action primary"
+                onClick={() => setMostrarModal(true)}>
 
                   <span>＋</span>
 
@@ -734,6 +775,13 @@ function Ocorrencias({ onSair, onNavigate, paginaAtual }) {
         </main>
 
       </div>
+
+      {mostrarModal && (
+        <NovaOcorrenciaModal
+          onFechar={() => setMostrarModal(false)}
+          onCadastrar={cadastrarOcorrencia}
+        />
+      )}
 
     </div>
   );

@@ -67,21 +67,17 @@
 
 .new-occurrence-button {
   border: none;
-  border-radius: 8px;
-
-  padding: 12px 18px;
-
+  background: #168a64;
+  color: white;
+  height: 40px;
+  padding: 0 21px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  background: #164d3a;
-  color: white;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
+  gap: 7px;
 }
 
 .new-occurrence-button:hover {
@@ -608,10 +604,8 @@
 }
 
 .occurrence-pagination button.selected {
-  background: #164d3a;
-
-  border-color: #164d3a;
-
+  background: #168a64;
+  border-color: #168a64;
   color: white;
 }
 
@@ -878,10 +872,7 @@
 }
 
 .occurrence-action.primary {
-  background: #164d3a;
-
-  border-color: #164d3a;
-
+  background: #168a64;
   color: white;
 }
 
