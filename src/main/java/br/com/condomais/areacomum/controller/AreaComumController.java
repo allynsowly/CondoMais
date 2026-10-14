@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/area-comum")
+@RequestMapping("/api/v1/area-comum")
 @RequiredArgsConstructor
 public class AreaComumController {
 

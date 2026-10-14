@@ -1,18 +1,24 @@
 package br.com.condomais.morador.service;
 
+import br.com.condomais.compartilhado.excecao.EmailJaExisteException;
 import br.com.condomais.compartilhado.excecao.IdNaoEncontradoException;
+import br.com.condomais.compartilhado.excecao.ProibidoException;
 import br.com.condomais.morador.DTOs.MoradorCreateDTO;
 import br.com.condomais.morador.DTOs.MoradorResponseDTO;
 import br.com.condomais.morador.DTOs.MoradorUpdateDTO;
+import br.com.condomais.morador.enums.FuncaoMoradorEnum;
 import br.com.condomais.morador.mapper.MoradorMapper;
 import br.com.condomais.morador.model.Morador;
 import br.com.condomais.morador.repository.MoradorRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -21,6 +27,8 @@ public class MoradorService {
 
     private final MoradorRepository repository;
     private final MoradorMapper mapper;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Transactional(readOnly = true)
     public List<MoradorResponseDTO> listarTudo() {
@@ -35,6 +43,16 @@ public class MoradorService {
     public MoradorResponseDTO buscarPorId(Long id) {
         log.debug("Buscando morador de ID {}", id);
         return mapper.toResponseDto(buscarEntidadePorId(id));
+    }
+
+    public MoradorResponseDTO buscarPorIdComoSindico(Long id, Morador moradorAutenticado) {
+        if (moradorAutenticado.getFuncao() != FuncaoMoradorEnum.SINDICO) {
+            throw new ProibidoException("Apenas o síndico pode executar esse comando.");
+        }
+
+        Morador moradorEncontrado = buscarEntidadePorId(id);
+
+        return mapper.toResponseDto(moradorEncontrado);
     }
 
     @Transactional
@@ -54,6 +72,25 @@ public class MoradorService {
     }
 
     @Transactional
+    public MoradorResponseDTO atualizarEu(Morador moradorAutenticado, MoradorUpdateDTO request) {
+        Morador morador = buscarEntidadePorId(moradorAutenticado.getId());
+
+        if (!request.getEmail().equals(morador.getEmail()) && repository.existePorEmail(request.getEmail())) {
+            throw new EmailJaExisteException(request.getEmail());
+        }
+
+        morador.setNome(request.getNome());
+        morador.setEmail(request.getEmail());
+        morador.setSenha(request.getSenha());
+        morador.setTelefone(request.getTelefone());
+        morador.setApartamento(request.getApartamento());
+        repository.save(morador);
+        repository.flush();
+        entityManager.refresh(morador);
+        return mapper.toResponseDto(morador);
+    }
+
+    @Transactional
     public void deletar(Long id) {
         Morador morador = buscarEntidadePorId(id);
         repository.delete(morador);
@@ -67,5 +104,13 @@ public class MoradorService {
                     return new IdNaoEncontradoException(
                             "Morador de ID " + id + " não foi encontrado");
                 });
+    }
+
+    public Optional<Morador> acharPorEmail(String email) {
+        return repository.acharPorEmail(email);
+    }
+
+    public Boolean existePorEmail(String email) {
+        return repository.existePorEmail(email);
     }
 }

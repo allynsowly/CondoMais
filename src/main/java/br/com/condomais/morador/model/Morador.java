@@ -10,14 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 
 import br.com.condomais.apartamento.model.Apartamento;
 import br.com.condomais.morador.enums.FuncaoMoradorEnum;
 
 @Entity
-@Table(name = "Moradores")
+@Table(name = "Moradores") 
 @Data
+@Builder 
 public class Morador {
 
     @Id
