@@ -229,14 +229,18 @@ function NovoMoradorModal({ onClose, onCadastrar }) {
     };
 
 
-    // Simula um pequeno tempo de processamento
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    onCadastrar(novoMorador);
-
-    setEnviando(false);
-
-    onClose();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      onCadastrar(novoMorador);
+      setEnviando(false);
+      onClose();
+    } catch (error) {
+      console.error("Erro ao cadastrar morador:", error);
+      setErros({ nome: "Erro ao cadastrar morador." });
+    } finally {
+      setEnviando(false);
+    }
+    
   }
 
 
@@ -547,6 +551,12 @@ function NovoMoradorModal({ onClose, onCadastrar }) {
               </div>
 
             </div>
+
+            {erros.formulario && (
+              <small className="error-message">
+                {erros.formulario}
+              </small>
+            )}
 
 
             <p className="required-message">

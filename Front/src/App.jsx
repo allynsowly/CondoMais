@@ -51,6 +51,40 @@ function App() {
     ]);
   }
 
+  const [moradores, setMoradores] = useState([
+  { nome: "Ana Souza", unidade: "Bloco A - 101", cpf: "123.456.789-00", email: "ana@email.com", telefone: "(79) 99999-0001", status: "Ativo", avatar: "👩🏻" },
+  { nome: "Carlos Mendes", unidade: "Bloco A - 102", cpf: "987.654.321-00", email: "carlos@email.com", telefone: "(79) 99999-0002", status: "Ativo", avatar: "👨🏻" },
+  { nome: "Fernanda Lima", unidade: "Bloco B - 201", cpf: "456.789.123-00", email: "fernanda@email.com", telefone: "(79) 99999-0003", status: "Ativo", avatar: "👩🏻" },
+  { nome: "Roberto Alves", unidade: "Bloco B - 202", cpf: "321.654.987-00", email: "roberto@email.com", telefone: "(79) 99999-0004", status: "Ativo", avatar: "👨🏻" },
+  { nome: "Juliana Pereira", unidade: "Bloco C - 301", cpf: "654.987.321-00", email: "juliana@email.com", telefone: "(79) 99999-0005", status: "Ativo", avatar: "👩🏻" },
+  { nome: "Marcos Oliveira", unidade: "Bloco C - 302", cpf: "789.123.456-00", email: "marcos@email.com", telefone: "(79) 99999-0006", status: "Ativo", avatar: "👨🏻" },
+  { nome: "Beatriz Costa", unidade: "Bloco D - 401", cpf: "213.456.789-00", email: "beatriz@email.com", telefone: "(79) 99999-0007", status: "Inativo", avatar: "👩🏻" },
+  { nome: "Rafael Santos", unidade: "Bloco D - 402", cpf: "876.543.210-00", email: "rafael@email.com", telefone: "(79) 99999-0008", status: "Ativo", avatar: "👨🏻" },
+  { nome: "Camila Rocha", unidade: "Bloco E - 501", cpf: "135.792.468-00", email: "camila@email.com", telefone: "(79) 99999-0009", status: "Ativo", avatar: "👩🏻" },
+  { nome: "Lucas Ferreira", unidade: "Bloco E - 502", cpf: "246.801.357-00", email: "lucas@email.com", telefone: "(79) 99999-0010", status: "Ativo", avatar: "👨🏻" }
+]);
+
+async function cadastrarMorador(novoMorador) {
+  const cpfExiste = moradores.some((m) => m.cpf === novoMorador.cpf);
+
+  if (cpfExiste) {
+    throw new Error("Já existe um morador com esse CPF.");
+  }
+
+  setMoradores((listaAtual) => [
+    {
+      nome: novoMorador.nome,
+      unidade: novoMorador.unidade,
+      cpf: novoMorador.cpf,
+      email: novoMorador.email,
+      telefone: novoMorador.telefone,
+      status: "Ativo",
+      avatar: "👤"
+    },
+    ...listaAtual
+  ]);
+}
+
 
   function fazerLogin(tipo) {
     setTipoUsuario(tipo);
@@ -94,6 +128,8 @@ function App() {
         onSair={sair}
         onNavigate={navegar}
         paginaAtual={paginaAtual}
+        moradores={moradores}
+        cadastrarMorador={cadastrarMorador}
         cadastrarUnidade={cadastrarUnidade}
       />
     );
