@@ -1,0 +1,31 @@
+package br.com.condomais.areacomum.model;
+
+import java.time.LocalTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "Áreas_Comuns")
+@Data
+public class AreaComum {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "Nome")
+    private String nome;
+
+    @Column(name = "Capacidade")
+    private int capacidade;
+
+    @Column(name = "Horário_Funcionamento")
+    private LocalTime horarioFuncionamento;
+
+}

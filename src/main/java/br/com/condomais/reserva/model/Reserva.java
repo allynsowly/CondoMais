@@ -1,0 +1,48 @@
+package br.com.condomais.reserva.model;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+import br.com.condomais.areacomum.model.AreaComum;
+import br.com.condomais.morador.model.Morador;
+import br.com.condomais.reserva.enums.ReservaStatusEnum;
+
+@Entity
+@Table(name = "Reservas")
+@Data
+public class Reserva {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "Área Comnum")
+    private AreaComum areaComum;
+
+    @ManyToOne
+    @JoinColumn(name = "Morador")
+    private Morador morador;
+
+    @Column(name = "Data")
+    private LocalDate data;
+
+    @Column(name = "Horário")
+    private LocalTime horario;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Status")
+    private ReservaStatusEnum status;
+}
