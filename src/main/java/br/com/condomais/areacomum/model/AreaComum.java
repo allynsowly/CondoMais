@@ -10,12 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity 
+@Entity
 @Table(name = "Áreas_Comuns")
-@Data 
+@Data
 public class AreaComum {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,6 +27,5 @@ public class AreaComum {
 
     @Column(name = "Horário_Funcionamento")
     private LocalTime horarioFuncionamento;
-    
+
 }
- 
