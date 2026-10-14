@@ -1,0 +1,719 @@
+/* =========================================
+   PÁGINA DE MORADORES - SÍNDICO
+========================================= */
+
+.moradores-page {
+  min-height: 100vh;
+  background: #f4f8f7;
+}
+
+.moradores-main {
+  width: calc(100% - 236px);
+  margin-left: 236px;
+}
+
+.moradores-content {
+  padding: 22px;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.moradores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.moradores-header-left {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.moradores-header-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 39px;
+}
+
+.moradores-header h1 {
+  margin: 0;
+  color: #164d3a;
+  font-size: 29px;
+  line-height: 1.1;
+}
+
+.moradores-header p {
+  margin-top: 5px;
+  color: #5b796e;
+  font-size: 14px;
+}
+
+.new-resident-button {
+  border: none;
+  background: #168a64;
+  color: white;
+  height: 40px;
+  padding: 0 21px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.new-resident-button:hover {
+  background: #116f50;
+}
+
+.new-resident-button span {
+  font-size: 21px;
+}
+
+
+/* =========================================
+   CARDS DE RESUMO
+========================================= */
+
+.moradores-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.resident-summary-card {
+  min-height: 108px;
+  border: 1px solid;
+  border-radius: 7px;
+  padding: 17px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  background: white;
+}
+
+.summary-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  flex-shrink: 0;
+}
+
+.summary-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-info span {
+  color: #244b3d;
+  font-size: 12px;
+}
+
+.summary-info strong {
+  color: #173d2f;
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 4px 0;
+}
+
+.summary-info small {
+  color: #668276;
+  font-size: 10px;
+}
+
+
+/* PRINCIPAL */
+
+.resident-summary-card.primary {
+  border-color: #b9dfd1;
+  background: #f7fcfa;
+}
+
+.primary .summary-icon {
+  background: #d8f3e8;
+  color: #168a64;
+}
+
+
+/* VERDE */
+
+.resident-summary-card.green {
+  border-color: #b9e4d5;
+  background: #f5fcf9;
+}
+
+.green .summary-icon {
+  background: #d7f3e7;
+  color: #14966d;
+}
+
+
+/* ROXO */
+
+.resident-summary-card.purple {
+  border-color: #ddd5f5;
+  background: #faf9ff;
+}
+
+.purple .summary-icon {
+  background: #e9e3ff;
+  color: #6748d7;
+}
+
+
+/* LARANJA */
+
+.resident-summary-card.orange {
+  border-color: #f4d8c9;
+  background: #fffaf7;
+}
+
+.orange .summary-icon {
+  background: #ffeadf;
+  color: #e87932;
+}
+
+
+/* =========================================
+   GRID
+========================================= */
+
+.moradores-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 353px;
+  gap: 15px;
+  align-items: start;
+}
+
+
+/* =========================================
+   CARD DA LISTA
+========================================= */
+
+.residents-card {
+  background: white;
+  border: 1px solid #d8e8e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.residents-card-title {
+  height: 49px;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  border-bottom: 1px solid #e2ece7;
+}
+
+.residents-card-title h2 {
+  margin: 0;
+  color: #164d3a;
+  font-size: 15px;
+}
+
+
+/* =========================================
+   FILTROS
+========================================= */
+
+.residents-filters {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 150px 150px auto;
+  gap: 9px;
+  padding: 11px 16px 14px;
+}
+
+.resident-search {
+  height: 38px;
+  border: 1px solid #d7e6df;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 11px;
+  color: #709184;
+}
+
+.resident-search span {
+  font-size: 22px;
+}
+
+.resident-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #315d4d;
+  font-size: 11px;
+}
+
+.resident-search input::placeholder {
+  color: #8ba59b;
+}
+
+.residents-filters select {
+  height: 38px;
+  border: 1px solid #d7e6df;
+  border-radius: 6px;
+  background: white;
+  color: #45675b;
+  padding: 0 10px;
+  outline: none;
+  font-size: 11px;
+}
+
+.clear-filters {
+  height: 38px;
+  border: 1px solid #d7e6df;
+  background: white;
+  border-radius: 6px;
+  padding: 0 13px;
+  color: #416558;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+
+/* =========================================
+   TABELA
+========================================= */
+
+.residents-table-wrapper {
+  padding: 0 16px;
+  overflow-x: auto;
+}
+
+.residents-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.residents-table thead {
+  background: #eef7f3;
+}
+
+.residents-table th {
+  padding: 11px 8px;
+  text-align: left;
+  color: #164d3a;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.residents-table td {
+  padding: 9px 8px;
+  border-top: 1px solid #e5eee9;
+  color: #416457;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.residents-table input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
+
+/* =========================================
+   NOME
+========================================= */
+
+.resident-name {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #315b4d;
+  font-weight: 500;
+}
+
+.resident-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e2f3ed;
+  font-size: 17px;
+}
+
+.avatar-1 {
+  background: #e1eff9;
+}
+
+.avatar-2 {
+  background: #e4f5e9;
+}
+
+.avatar-3 {
+  background: #eae2fa;
+}
+
+.avatar-4 {
+  background: #ffe5e5;
+}
+
+.avatar-5 {
+  background: #e1f0fa;
+}
+
+.avatar-6 {
+  background: #fff0dc;
+}
+
+.avatar-7 {
+  background: #e2f4f2;
+}
+
+.avatar-8 {
+  background: #ffe4eb;
+}
+
+.avatar-9 {
+  background: #e1eef9;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.resident-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.resident-status.active {
+  background: #d7f5e7;
+  color: #00875f;
+}
+
+.resident-status.inactive {
+  background: #ffe1e1;
+  color: #e34b4b;
+}
+
+
+/* =========================================
+   AÇÕES
+========================================= */
+
+.resident-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.resident-actions button {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #d9e8e2;
+  background: #f5faf8;
+  border-radius: 5px;
+  color: #168a64;
+  cursor: pointer;
+}
+
+.resident-actions button:hover {
+  background: #e1f3eb;
+}
+
+
+/* =========================================
+   RODAPÉ DA TABELA
+========================================= */
+
+.residents-footer {
+  height: 54px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.residents-footer > span {
+  color: #6a8278;
+  font-size: 10px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination button {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #d9e7e1;
+  background: white;
+  color: #58766a;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.pagination button.selected {
+  background: #168a64;
+  border-color: #168a64;
+  color: white;
+}
+
+.pagination span {
+  color: #698379;
+  margin: 0 3px;
+}
+
+
+/* =========================================
+   LATERAL
+========================================= */
+
+.resident-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resident-side-card {
+  background: white;
+  border: 1px solid #d8e8e1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.side-card-header {
+  min-height: 45px;
+  padding: 0 15px;
+  border-bottom: 1px solid #e3ece8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.side-card-header h2 {
+  margin: 0;
+  color: #164d3a;
+  font-size: 12px;
+}
+
+.side-card-header a {
+  color: #168a64;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+
+/* =========================================
+   DETALHES
+========================================= */
+
+.resident-details {
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+.large-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #dff3eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.resident-details-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.resident-details-info h3 {
+  margin: 0 0 4px;
+  color: #164d3a;
+  font-size: 16px;
+}
+
+.active-tag {
+  align-self: flex-start;
+  background: #d7f5e7;
+  color: #00875f;
+  padding: 4px 9px;
+  border-radius: 12px;
+  font-size: 8px;
+  margin-bottom: 4px;
+}
+
+.resident-details-info p {
+  margin: 3px 0;
+  color: #607c70;
+  font-size: 9px;
+}
+
+
+/* =========================================
+   INFORMAÇÕES LATERAIS
+========================================= */
+
+.side-information {
+  margin: 10px 14px;
+  padding: 10px;
+  border: 1px solid #e0ebe6;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.side-information-icon {
+  width: 37px;
+  height: 37px;
+  border-radius: 7px;
+  background: #e5f3ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.side-information-icon.emergency {
+  background: #edf3ee;
+}
+
+.side-information > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.side-information strong {
+  color: #315d4d;
+  font-size: 11px;
+}
+
+.side-information span {
+  color: #6a8379;
+  font-size: 9px;
+}
+
+.side-information b {
+  margin-left: auto;
+  color: #799087;
+  font-size: 20px;
+}
+
+
+/* =========================================
+   AÇÕES RÁPIDAS
+========================================= */
+
+.quick-actions {
+  padding-bottom: 12px;
+}
+
+.quick-action {
+  width: calc(100% - 28px);
+  height: 42px;
+  margin: 8px 14px 0;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quick-action span {
+  font-size: 18px;
+}
+
+.primary-action {
+  background: #168a64;
+}
+
+.primary-action:hover {
+  background: #116f50;
+}
+
+.green-action {
+  background: #18a77c;
+}
+
+.green-action:hover {
+  background: #128e69;
+}
+
+.purple-action {
+  background: #6c4be8;
+}
+
+.purple-action:hover {
+  background: #5737cf;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .moradores-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .moradores-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resident-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 850px) {
+
+  .moradores-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .moradores-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .residents-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .resident-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+}
