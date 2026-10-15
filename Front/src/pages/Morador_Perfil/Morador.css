@@ -1,0 +1,673 @@
+/* =========================================
+   TELAS DO MORADOR (reservas, avisos, perfil)
+   Prefixo mor- para não conflitar com o App.css
+========================================= */
+
+/* ---------- pequenos avisos dentro dos cards do dashboard ---------- */
+
+.mor-card-aviso {
+  font-size: 12px;
+  color: #526d92;
+  line-height: 1.6;
+  padding: 8px 2px;
+}
+
+.mor-card-aviso.erro {
+  color: #c62828;
+}
+
+.mor-link {
+  color: #0875e1;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mor-link:hover {
+  text-decoration: underline;
+}
+
+.mor-tag-novo {
+  font-style: normal;
+  font-size: 9px;
+  font-weight: bold;
+  color: #b45309;
+  background: #fff0c5;
+  border-radius: 10px;
+  padding: 2px 7px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.status.pendente {
+  background: #fff0c5;
+  color: #b45309;
+  cursor: pointer;
+}
+
+/* ---------- cabeçalho de página ---------- */
+
+.mor-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.mor-page-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mor-page-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #e5f0fd;
+  color: #1479ed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.mor-page-title h1 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.mor-page-title p {
+  font-size: 14px;
+  color: #49688f;
+}
+
+/* ---------- botões ---------- */
+
+.mor-btn {
+  height: 42px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.mor-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mor-btn.primario {
+  background: #1479ed;
+  color: white;
+}
+
+.mor-btn.primario:hover:not(:disabled) {
+  background: #1166cc;
+}
+
+.mor-btn.secundario {
+  background: white;
+  color: #17345f;
+  border-color: #cfdbea;
+}
+
+.mor-btn.secundario:hover:not(:disabled) {
+  background: #f2f6fb;
+}
+
+.mor-btn.perigo {
+  background: white;
+  color: #c62828;
+  border-color: #f0b8b8;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.mor-btn.perigo:hover:not(:disabled) {
+  background: #ffecec;
+}
+
+.mor-btn.perigo-cheio {
+  background: #d9534f;
+  color: white;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.mor-btn.pequeno {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+/* ---------- mensagens ---------- */
+
+.mor-msg {
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.mor-msg.sucesso {
+  background: #d9f8ed;
+  color: #07966e;
+}
+
+.mor-msg.erro {
+  background: #ffe2e2;
+  color: #c62828;
+}
+
+.mor-vazio {
+  text-align: center;
+  color: #6a82a3;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+
+.mor-vazio strong {
+  display: block;
+  color: #17345f;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+/* ---------- lembretes na página de reservas ---------- */
+
+.mor-lembretes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.mor-lembrete {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff8e6;
+  border: 1px solid #fde4a1;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.mor-lembrete.proximo {
+  background: #fff1e5;
+  border-color: #fcc79a;
+}
+
+.mor-lembrete-icone {
+  font-size: 22px;
+}
+
+.mor-lembrete strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.mor-lembrete p {
+  font-size: 12px;
+  color: #6b5a2e;
+}
+
+.mor-banner-notif {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #eef6ff;
+  border: 1px solid #cfe3fa;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #3a5a86;
+}
+
+.mor-banner-notif.ok {
+  background: #effaf5;
+  border-color: #c6ecdc;
+  color: #1f7a58;
+}
+
+/* ---------- abas ---------- */
+
+.mor-tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid #e1eaf4;
+  margin-bottom: 18px;
+}
+
+.mor-tab {
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  color: #6a82a3;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+}
+
+.mor-tab.ativa {
+  color: #1166cc;
+  border-bottom-color: #1479ed;
+}
+
+/* ---------- lista de reservas ---------- */
+
+.mor-reserva {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border: 1px solid #e1eaf4;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 7px rgba(35, 67, 104, 0.04);
+}
+
+.mor-reserva .date {
+  flex-shrink: 0;
+}
+
+.mor-reserva-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mor-reserva-info strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.mor-reserva-info span {
+  font-size: 12px;
+  color: #536e94;
+}
+
+.mor-reserva-acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mor-reserva-confirma {
+  font-size: 12px;
+  color: #c62828;
+  margin-right: 4px;
+}
+
+.mor-badge {
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 15px;
+  padding: 6px 12px;
+}
+
+.mor-badge.marcada {
+  color: #0875e1;
+  background: #e5f0fd;
+}
+
+.mor-badge.concluida {
+  color: #008d70;
+  background: #d6f8ed;
+}
+
+.mor-badge.cancelada {
+  color: #ef4444;
+  background: #ffe2e2;
+}
+
+/* ---------- modal ---------- */
+
+.mor-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(16, 32, 56, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.mor-modal {
+  width: 100%;
+  max-width: 580px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.mor-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 22px 26px;
+  border-bottom: 1px solid #e9eff7;
+}
+
+.mor-modal-header h2 {
+  font-size: 20px;
+}
+
+.mor-modal-header p {
+  font-size: 13px;
+  color: #6a82a3;
+  margin-top: 5px;
+}
+
+.mor-modal-fechar {
+  border: none;
+  background: transparent;
+  color: #6a82a3;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mor-modal-corpo {
+  padding: 22px 26px;
+}
+
+.mor-modal-rodape {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 26px 24px;
+}
+
+/* ---------- formulários ---------- */
+
+.mor-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.mor-campo label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.mor-campo input,
+.mor-campo select {
+  height: 44px;
+  border: 1px solid #dbe5f0;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #17345f;
+  background: white;
+  outline: none;
+}
+
+.mor-campo input:focus,
+.mor-campo select:focus {
+  border-color: #1479ed;
+}
+
+.mor-campo input:disabled {
+  background: #f2f6fb;
+  color: #6a82a3;
+}
+
+.mor-campo small {
+  font-size: 11px;
+  color: #6a82a3;
+}
+
+.mor-campo small.erro {
+  color: #d9534f;
+}
+
+.mor-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ---------- horários ---------- */
+
+.mor-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+  gap: 8px;
+}
+
+.mor-slot {
+  height: 40px;
+  border: 1px solid #cfdbea;
+  border-radius: 8px;
+  background: white;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  color: #17345f;
+  cursor: pointer;
+}
+
+.mor-slot:hover:not(:disabled) {
+  border-color: #1479ed;
+  color: #1479ed;
+}
+
+.mor-slot.selecionado {
+  background: #1479ed;
+  border-color: #1479ed;
+  color: white;
+}
+
+.mor-slot:disabled {
+  background: #f2f6fb;
+  color: #a5b4c8;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.mor-resumo {
+  background: #eef6ff;
+  border-radius: 8px;
+  color: #3a5a86;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+/* ---------- avisos ---------- */
+
+.mor-avisos-filtros {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.mor-busca {
+  flex: 1;
+  height: 44px;
+  border: 1px solid #dbe5f0;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+}
+
+.mor-busca span {
+  font-size: 22px;
+  color: #50719c;
+}
+
+.mor-busca input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: #17345f;
+}
+
+.mor-aviso {
+  background: white;
+  border: 1px solid #e1eaf4;
+  border-left: 5px solid #1681e8;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 7px rgba(35, 67, 104, 0.04);
+}
+
+.mor-aviso.recente {
+  border-left-color: #ffbd18;
+}
+
+.mor-aviso-topo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.mor-aviso-topo h3 {
+  font-size: 16px;
+}
+
+.mor-aviso-data {
+  font-size: 12px;
+  color: #567195;
+  white-space: nowrap;
+}
+
+.mor-aviso p {
+  font-size: 14px;
+  color: #3f5a80;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.mor-aviso p.recolhido {
+  line-clamp: 3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mor-aviso-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6a82a3;
+}
+
+/* ---------- perfil ---------- */
+
+.mor-perfil-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.mor-perfil-card {
+  background: white;
+  border: 1px solid #e1eaf4;
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 0 2px 7px rgba(35, 67, 104, 0.04);
+}
+
+.mor-perfil-card h2 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.mor-perfil-card > p {
+  font-size: 13px;
+  color: #6a82a3;
+  margin-bottom: 20px;
+}
+
+.mor-apto-atual {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f2fcfc;
+  border: 1px solid #cde8ed;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.mor-apto-atual span {
+  font-size: 30px;
+  color: #158c93;
+}
+
+.mor-apto-atual strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.mor-apto-atual small {
+  font-size: 12px;
+  color: #46688c;
+}
+
+.mor-apto-atual.vazio {
+  background: #fff8e6;
+  border-color: #fde4a1;
+}
+
+.mor-apto-atual.vazio span {
+  color: #b45309;
+}
+
+/* ---------- responsivo ---------- */
+
+@media (max-width: 1000px) {
+  .mor-perfil-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .mor-linha {
+    grid-template-columns: 1fr;
+  }
+
+  .mor-reserva {
+    flex-wrap: wrap;
+  }
+
+  .mor-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

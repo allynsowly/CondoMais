@@ -1,0 +1,135 @@
+/* Escolher um apartamento já cadastrado ou cadastrar um novo */
+
+.apt-sel {
+  display: flex;
+  flex-direction: column;
+}
+
+.apt-sel-modos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: #eef3fa;
+  border-radius: 9px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+
+.apt-sel-modo {
+  height: 38px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: #48658b;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.apt-sel-modo.ativo {
+  background: white;
+  color: #1166cc;
+  box-shadow: 0 1px 4px rgba(35, 67, 104, 0.12);
+}
+
+.apt-sel-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #17345f;
+}
+
+.apt-sel-campo input,
+.apt-sel-campo select {
+  height: 46px;
+  border: 1px solid #dbe5f0;
+  border-radius: 8px;
+  padding: 0 14px;
+  background: white;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: normal;
+  color: #17345f;
+  outline: none;
+}
+
+.apt-sel-campo input:focus,
+.apt-sel-campo select:focus {
+  border-color: #1479ed;
+}
+
+.apt-sel-campo .invalido {
+  border-color: #d9534f;
+}
+
+.apt-sel-campo small {
+  font-size: 11px;
+  font-weight: normal;
+  color: #d9534f;
+}
+
+.apt-sel-linha {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.apt-sel-info {
+  background: #eef6ff;
+  color: #3a5a86;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.apt-sel-erro {
+  background: #ffe2e2;
+  color: #c62828;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.apt-sel-confirmar {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 9px;
+  background: #1479ed;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.apt-sel-confirmar:hover:not(:disabled) {
+  background: #1166cc;
+}
+
+.apt-sel-confirmar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.apt-sel-pular {
+  background: none;
+  border: none;
+  color: #0875e1;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 16px;
+  align-self: center;
+}
+
+.apt-sel-pular:hover {
+  text-decoration: underline;
+}
