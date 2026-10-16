@@ -34,7 +34,7 @@ public class RefreshToken {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "morador_id", nullable = false)
     private Morador morador;
 
     @Column(name = "token_hash", nullable = false, unique = true, length = 88)

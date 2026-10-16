@@ -6,22 +6,22 @@ import java.time.LocalTime;
 import br.com.condomais.areacomum.model.AreaComum;
 import br.com.condomais.morador.model.Morador;
 import br.com.condomais.reserva.enums.ReservaStatusEnum;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data 
 public class ReservaCreateDTO {
     
-    @NotBlank 
+    @NotNull 
     private AreaComum areaComum;
 
-    @NotBlank 
+    @NotNull 
     private Morador morador;
 
-    @NotBlank
+    @NotNull 
     private LocalDate data;
 
-    @NotBlank 
+    @NotNull 
     private LocalTime horario;
 
     private ReservaStatusEnum status = ReservaStatusEnum.MARCADA;

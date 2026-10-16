@@ -109,7 +109,7 @@ public class MoradorService {
     public Optional<Morador> acharPorEmail(String email) {
         return repository.acharPorEmail(email);
     }
-
+    
     public Boolean existePorEmail(String email) {
         return repository.existePorEmail(email);
     }
