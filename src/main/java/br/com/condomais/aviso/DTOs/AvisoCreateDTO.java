@@ -6,6 +6,7 @@ import lombok.Data;
 
 import br.com.condomais.morador.model.Morador;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Data 
@@ -19,10 +20,10 @@ public class AvisoCreateDTO {
     @Size(max = 500) 
     private String corpo;
 
-    @NotBlank 
+    @NotNull 
     private LocalDate dataPublicacao;
 
-    @NotBlank 
+    @NotNull  
     private Morador autor;
 
 }
